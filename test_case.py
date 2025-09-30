@@ -1,4 +1,5 @@
 class TestCase:
+    # Creio que o assert deva ser adicionado aqui, pois usamos o 'result' do teste para fazer o assert!
     def __init__(self, test_method_name):
         self.test_method_name = test_method_name
 
@@ -19,3 +20,19 @@ class TestCase:
 
     def tear_down(self):
         pass
+
+    # De fato era aqui! :D
+    def assert_equal(self, first, second):
+        if first != second:
+            msg = f'{first} != {second}'
+            raise AssertionError(msg)
+            
+    def assert_true(self, expr):
+        if not expr:
+            msg = f'{expr} is not true'
+            raise AssertionError(msg)
+
+    def assert_false(self, expr):
+        if expr:
+            msg = f'{expr} is not false'
+            raise AssertionError(msg)
